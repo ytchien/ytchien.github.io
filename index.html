@@ -3,542 +3,322 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prof. [Your Name] — Physics, Georgia State University</title>
+  <title>Yang-Ting Chien — Physics, Georgia State University</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:wght@300;400;500;600&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── Variables ── */
     :root {
-      --navy:      #1a2744;
-      --gold:      #b5922a;
-      --gold-lt:   #d4af5a;
-      --cream:     #faf8f4;
-      --warm-gray: #f0ece4;
-      --mid-gray:  #7a7468;
-      --text:      #2c2820;
-      --rule:      #d6cfc4;
-      --serif:     'EB Garamond', Georgia, serif;
-      --display:   'Cormorant Garamond', Georgia, serif;
-      --mono:      'Source Code Pro', monospace;
+      --blue:      #1a56a0;
+      --blue-soft: #3a78c9;
+      --blue-pale: #e8f0fb;
+      --text:      #1f2328;
+      --muted:     #555e6d;
+      --rule:      #dde3ec;
+      --font:      'Roboto', 'Google Sans', Arial, sans-serif;
     }
 
-    /* ── Reset & Base ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 17px; }
+    html { font-size: 18px; scroll-behavior: smooth; }
+
     body {
-      font-family: var(--serif);
-      background: var(--cream);
+      font-family: var(--font);
+      background: #fff;
       color: var(--text);
-      line-height: 1.75;
+      line-height: 1.7;
     }
 
-    a { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
-    a:hover { color: var(--gold); }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    /* ── Layout ── */
-    .page-wrap {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* ── Top bar ── */
-    .topbar {
-      background: var(--navy);
-      color: #c8d4e8;
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
-      padding: 0.55rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .topbar a { color: #a8bcdc; text-decoration: none; }
-    .topbar a:hover { color: var(--gold-lt); }
-
-    /* ── Masthead ── */
-    .masthead {
-      border-bottom: 1px solid var(--rule);
-      padding: 3.5rem 0 2.5rem;
-    }
-    .masthead-inner {
-      display: flex;
-      gap: 2.8rem;
-      align-items: flex-start;
-    }
-    .avatar-wrap {
-      flex-shrink: 0;
-    }
-    .avatar {
-      width: 130px;
-      height: 160px;
-      object-fit: cover;
-      border: 1px solid var(--rule);
-      display: block;
-      background: var(--warm-gray);
-    }
-    .avatar-placeholder {
-      width: 130px;
-      height: 160px;
-      background: var(--warm-gray);
-      border: 1px solid var(--rule);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--mid-gray);
-      font-size: 0.72rem;
-      font-family: var(--mono);
-      text-align: center;
-      line-height: 1.4;
-    }
-    .masthead-text h1 {
-      font-family: var(--display);
-      font-weight: 300;
-      font-size: 2.6rem;
-      color: var(--navy);
-      letter-spacing: 0.01em;
-      line-height: 1.15;
-      margin-bottom: 0.3rem;
-    }
-    .masthead-text .title-line {
-      font-family: var(--serif);
-      font-size: 1rem;
-      color: var(--gold);
-      letter-spacing: 0.04em;
-      margin-bottom: 0.9rem;
-    }
-    .masthead-text .affil {
-      font-size: 0.92rem;
-      color: var(--mid-gray);
-      line-height: 1.6;
-    }
-    .masthead-text .affil strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-    .contact-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1.2rem;
-    }
-    .chip {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.04em;
-      padding: 0.25rem 0.65rem;
-      border: 1px solid var(--rule);
-      color: var(--mid-gray);
-      text-decoration: none;
-      background: white;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .chip:hover { border-color: var(--gold); color: var(--gold); }
-
-    /* ── Navigation ── */
+    /* ── Nav ── */
     nav {
+      background: #fff;
+      border-bottom: 1px solid var(--rule);
       position: sticky;
       top: 0;
       z-index: 100;
-      background: white;
-      border-bottom: 1px solid var(--rule);
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     }
     nav ul {
       list-style: none;
       display: flex;
-      gap: 0;
-      max-width: 860px;
+      gap: 0.2rem;
+      max-width: 980px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1.5rem;
     }
     nav ul li a {
       display: block;
-      padding: 0.85rem 1.1rem;
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--mid-gray);
-      text-decoration: none;
+      padding: 0.75rem 0.9rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--muted);
       border-bottom: 2px solid transparent;
-      transition: color 0.2s, border-color 0.2s;
+      transition: color 0.15s, border-color 0.15s;
     }
     nav ul li a:hover,
     nav ul li a.active {
-      color: var(--navy);
-      border-bottom-color: var(--gold);
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+      text-decoration: none;
+    }
+
+    /* ── Page wrap ── */
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 2.8rem 0 2rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .header-inner {
+      display: flex;
+      gap: 2.4rem;
+      align-items: flex-start;
+    }
+    .header-inner img {
+      width: 200px;
+      height: 250px;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid var(--rule);
+      flex-shrink: 0;
+    }
+    .header-text h1 {
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--blue);
+      margin-bottom: 0.15rem;
+      line-height: 1.2;
+    }
+    .header-text .role {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .header-text .bio-intro {
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+      color: var(--text);
+    }
+    .contact-list {
+      list-style: none;
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 2;
+    }
+    .contact-list li::before {
+      content: '';
+    }
+    .contact-list a {
+      color: var(--blue);
     }
 
     /* ── Sections ── */
     section {
-      padding: 3.5rem 0;
+      padding: 2.4rem 0;
       border-bottom: 1px solid var(--rule);
     }
-    section:last-of-type { border-bottom: none; }
-
-    .section-label {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.5rem;
+    section:last-of-type {
+      border-bottom: none;
     }
     h2 {
-      font-family: var(--display);
-      font-weight: 400;
-      font-size: 1.9rem;
-      color: var(--navy);
-      margin-bottom: 1.4rem;
-      line-height: 1.2;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--blue);
+      margin-bottom: 1rem;
     }
-    p { margin-bottom: 1rem; }
+    p { margin-bottom: 0.9rem; }
     p:last-child { margin-bottom: 0; }
-
-    /* ── Research ── */
-    .research-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-      margin-top: 1.5rem;
-    }
-    .research-card {
-      background: white;
-      border: 1px solid var(--rule);
-      border-left: 3px solid var(--gold);
-      padding: 1.2rem 1.3rem;
-    }
-    .research-card h3 {
-      font-family: var(--serif);
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 0.4rem;
-    }
-    .research-card p {
-      font-size: 0.9rem;
-      color: var(--mid-gray);
-      line-height: 1.6;
-      margin: 0;
-    }
 
     /* ── Publications ── */
     .pub-list { list-style: none; }
     .pub-list li {
-      padding: 1.1rem 0;
-      border-bottom: 1px solid var(--warm-gray);
-      display: grid;
-      grid-template-columns: 2.5rem 1fr;
-      gap: 0.8rem;
-      align-items: baseline;
-    }
-    .pub-list li:last-child { border-bottom: none; }
-    .pub-num {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--gold);
-      padding-top: 0.15rem;
-    }
-    .pub-title {
-      font-style: italic;
-      color: var(--navy);
-      font-weight: 500;
-    }
-    .pub-authors {
-      font-size: 0.9rem;
-      color: var(--text);
-    }
-    .pub-journal {
-      font-size: 0.88rem;
-      color: var(--mid-gray);
-      margin-top: 0.2rem;
-    }
-    .pub-links { margin-top: 0.3rem; }
-    .pub-links a {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--mid-gray);
-      text-decoration: none;
-      margin-right: 0.8rem;
+      padding: 0.75rem 0;
       border-bottom: 1px solid var(--rule);
-      padding-bottom: 1px;
-    }
-    .pub-links a:hover { color: var(--gold); border-color: var(--gold); }
-
-    /* ── Teaching ── */
-    .course-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.93rem;
-      margin-top: 0.5rem;
-    }
-    .course-table thead tr {
-      border-bottom: 2px solid var(--navy);
-    }
-    .course-table th {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--mid-gray);
-      font-weight: 400;
-      padding: 0.5rem 0.8rem 0.6rem;
-      text-align: left;
-    }
-    .course-table td {
-      padding: 0.7rem 0.8rem;
-      border-bottom: 1px solid var(--warm-gray);
-      vertical-align: top;
-    }
-    .course-table tr:last-child td { border-bottom: none; }
-    .course-num {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      color: var(--gold);
-      white-space: nowrap;
-    }
-
-    /* ── CV ── */
-    .cv-box {
-      background: white;
-      border: 1px solid var(--rule);
-      padding: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-    }
-    .cv-box p { color: var(--mid-gray); font-size: 0.93rem; margin: 0; }
-    .btn {
-      display: inline-block;
-      background: var(--navy);
-      color: white;
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.65rem 1.4rem;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: background 0.2s;
-      flex-shrink: 0;
-    }
-    .btn:hover { background: var(--gold); color: white; }
-
-    /* ── Contact ── */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 0.5rem;
-    }
-    .contact-block dt {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.3rem;
-      margin-top: 1rem;
-    }
-    .contact-block dt:first-child { margin-top: 0; }
-    .contact-block dd {
-      font-size: 0.93rem;
-      color: var(--text);
+      font-size: 0.97rem;
       line-height: 1.6;
     }
+    .pub-list li:last-child { border-bottom: none; }
+    .pub-title { font-style: italic; }
+    .pub-meta { color: var(--muted); font-size: 0.88rem; margin-top: 0.2rem; }
+    .pub-links { margin-top: 0.2rem; }
+    .pub-links a {
+      font-size: 0.82rem;
+      color: var(--blue-soft);
+      margin-right: 0.9rem;
+    }
+
+    /* ── Teaching ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+    thead tr { border-bottom: 2px solid var(--blue); }
+    th {
+      text-align: left;
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding: 0.4rem 0.7rem 0.5rem;
+    }
+    td {
+      padding: 0.55rem 0.7rem;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    .course-num { color: var(--blue-soft); font-size: 0.9rem; white-space: nowrap; }
+
+    /* ── People ── */
+    .people-group { margin-bottom: 1.4rem; }
+    .people-group h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--muted);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.7rem;
+    }
+    .people-list { list-style: none; }
+    .people-list li {
+      padding: 0.35rem 0;
+      font-size: 0.97rem;
+    }
+    .people-list li span {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-left: 0.5rem;
+    }
+
+    /* ── Links section ── */
+    .links-list { list-style: none; }
+    .links-list li {
+      padding: 0.35rem 0;
+      font-size: 0.97rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .links-list li:last-child { border-bottom: none; }
+    .links-list a { color: var(--blue); }
 
     /* ── Footer ── */
     footer {
-      background: var(--navy);
-      color: #6a7a9a;
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.05em;
-      padding: 1.4rem 2rem;
+      background: var(--blue-pale);
+      color: var(--muted);
+      font-size: 0.82rem;
       text-align: center;
+      padding: 1.2rem;
+      margin-top: 1rem;
     }
-    footer a { color: #a8bcdc; text-decoration: none; }
-    footer a:hover { color: var(--gold-lt); }
+    footer a { color: var(--blue); }
 
     /* ── Responsive ── */
-    @media (max-width: 620px) {
-      .masthead-inner { flex-direction: column; gap: 1.5rem; }
-      .research-grid { grid-template-columns: 1fr; }
-      .contact-grid  { grid-template-columns: 1fr; }
-      .cv-box { flex-direction: column; align-items: flex-start; }
-      nav ul li a { padding: 0.7rem 0.6rem; font-size: 0.65rem; }
+    @media (max-width: 600px) {
+      .header-inner { flex-direction: column; }
+      .header-inner img { width: 150px; height: 190px; }
     }
   </style>
 </head>
 <body>
 
-<!-- Top bar -->
-<div class="topbar">
-  <span>Department of Physics &amp; Astronomy — Georgia State University</span>
-  <a href="https://physics.gsu.edu" target="_blank">physics.gsu.edu ↗</a>
-</div>
+<nav>
+  <div class="wrap">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#people">People</a></li>
+      <li><a href="#links">Links</a></li>
+    </ul>
+  </div>
+</nav>
 
-<!-- Masthead -->
-<div class="page-wrap">
-  <header class="masthead">
-    <div class="masthead-inner">
-      <div class="avatar-wrap">
-        <!-- Replace src with your actual photo path, e.g. src="photo.jpeg" -->
-        <img src="photo.jpeg" alt="Your Name" class="avatar">
-      </div>
-      <div class="masthead-text">
-        <h1>Your Name</h1>
-        <div class="title-line">Professor of Physics</div>
-        <div class="affil">
-          <strong>Department of Physics &amp; Astronomy</strong><br/>
-          Georgia State University<br/>
-          Atlanta, Georgia 30303
-        </div>
-        <div class="contact-chips">
-          <a class="chip" href="mailto:yourname@gsu.edu">yourname@gsu.edu</a>
-          <a class="chip" href="https://scholar.google.com" target="_blank">Google Scholar</a>
-          <a class="chip" href="https://orcid.org/0000-0000-0000-0000" target="_blank">ORCID</a>
-          <a class="chip" href="https://arxiv.org/search/?searchtype=author&query=YourName" target="_blank">arXiv</a>
-        </div>
+<div class="wrap">
+
+  <!-- Header -->
+  <header id="about">
+    <div class="header-inner">
+      <img src="photo.jpeg" alt="Yang-Ting Chien" />
+      <div class="header-text">
+        <h1>Yang-Ting Chien</h1>
+        <div class="role">Assistant Professor of Physics · Georgia State University</div>
+
+        <p class="bio-intro">
+          Write a short introduction about yourself here — your research focus,
+          background, and what drives your work. Two to three sentences is plenty
+          for this top-level summary. More detail can go in the Research section below.
+        </p>
+
+        <ul class="contact-list">
+          <li><a href="mailto:ytchien@gsu.edu">ytchien@gsu.edu</a></li>
+          <li>Science Annex, Room 404</li>
+          <li>29 Peachtree Center Ave SE, Atlanta, GA 30303</li>
+          <li>Department of Physics &amp; Astronomy, Georgia State University</li>
+        </ul>
       </div>
     </div>
   </header>
-</div>
-
-<!-- Navigation -->
-<nav>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#research">Research</a></li>
-    <li><a href="#publications">Publications</a></li>
-    <li><a href="#teaching">Teaching</a></li>
-    <li><a href="#cv">CV</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<div class="page-wrap">
-
-  <!-- About -->
-  <section id="about">
-    <div class="section-label">01 — About</div>
-    <h2>Biography</h2>
-    <p>
-      Write a short professional biography here — 2 to 3 paragraphs describing your
-      background, research focus, and academic position. This is often the first thing
-      visitors read, so keep it engaging and accessible to a broad scientific audience.
-    </p>
-    <p>
-      You might mention where you did your undergraduate and graduate work, your
-      postdoctoral experience, and when you joined Georgia State University.
-    </p>
-    <p>
-      A sentence or two about broader interests — outreach, mentoring, or collaborative
-      initiatives — is a nice personal touch.
-    </p>
-  </section>
 
   <!-- Research -->
   <section id="research">
-    <div class="section-label">02 — Research</div>
-    <h2>Research Interests</h2>
+    <h2>Research</h2>
     <p>
-      Brief overview sentence describing the general thrust of your research program.
+      Describe your research program here in plain prose — no boxes, no bullet lists
+      unless you need them. Write a paragraph or two on the main themes of your work,
+      the methods you use, and the big questions you are trying to answer.
     </p>
-    <div class="research-grid">
-      <div class="research-card">
-        <h3>Research Area One</h3>
-        <p>Short description of this topic, methods used, and key questions you are addressing.</p>
-      </div>
-      <div class="research-card">
-        <h3>Research Area Two</h3>
-        <p>Short description of this topic, methods used, and key questions you are addressing.</p>
-      </div>
-      <div class="research-card">
-        <h3>Research Area Three</h3>
-        <p>Short description of this topic, methods used, and key questions you are addressing.</p>
-      </div>
-      <div class="research-card">
-        <h3>Research Area Four</h3>
-        <p>Short description of this topic, methods used, and key questions you are addressing.</p>
-      </div>
-    </div>
+    <p>
+      You can add a second paragraph to cover a distinct research direction or
+      ongoing collaborations. Keep it readable for a broad physics audience.
+    </p>
   </section>
 
   <!-- Publications -->
   <section id="publications">
-    <div class="section-label">03 — Publications</div>
-    <h2>Selected Publications</h2>
-    <p style="font-size:0.9rem; color:var(--mid-gray);">
-      See also:
+    <h2>Publications</h2>
+    <p style="font-size:0.9rem; color:var(--muted); margin-bottom:1rem;">
+      Full list on
+      <a href="https://inspirehep.net" target="_blank">INSPIRE-HEP</a> ·
       <a href="https://scholar.google.com" target="_blank">Google Scholar</a> ·
-      <a href="https://arxiv.org" target="_blank">arXiv</a> ·
-      <a href="https://orcid.org" target="_blank">ORCID</a>
+      <a href="https://arxiv.org/search/?searchtype=author&query=Chien+Yang-Ting" target="_blank">arXiv</a>
     </p>
-    <ul class="pub-list" style="margin-top:1.2rem;">
+    <ul class="pub-list">
       <li>
-        <span class="pub-num">1.</span>
-        <div>
-          <div class="pub-title">Title of Your Most Recent Paper</div>
-          <div class="pub-authors">A. Author, B. Author, <strong>Your Name</strong>, C. Author</div>
-          <div class="pub-journal"><em>Physical Review Letters</em> <strong>132</strong>, 123456 (2024)</div>
-          <div class="pub-links">
-            <a href="#">DOI</a>
-            <a href="#">arXiv</a>
-            <a href="#">PDF</a>
-          </div>
-        </div>
+        <div class="pub-title">Title of Your Most Recent Paper</div>
+        <div class="pub-meta">A. Author, B. Author, Yang-Ting Chien, C. Author &nbsp;·&nbsp; <em>Phys. Rev. Lett.</em> <strong>132</strong>, 123456 (2024)</div>
+        <div class="pub-links"><a href="#">DOI</a><a href="#">arXiv</a><a href="#">PDF</a></div>
       </li>
       <li>
-        <span class="pub-num">2.</span>
-        <div>
-          <div class="pub-title">Title of Another Paper</div>
-          <div class="pub-authors">A. Author, <strong>Your Name</strong>, B. Author</div>
-          <div class="pub-journal"><em>Physical Review D</em> <strong>108</strong>, 034021 (2023)</div>
-          <div class="pub-links">
-            <a href="#">DOI</a>
-            <a href="#">arXiv</a>
-            <a href="#">PDF</a>
-          </div>
-        </div>
+        <div class="pub-title">Title of Another Paper</div>
+        <div class="pub-meta">Yang-Ting Chien, A. Author &nbsp;·&nbsp; <em>JHEP</em> <strong>2023</strong>, 045 (2023)</div>
+        <div class="pub-links"><a href="#">DOI</a><a href="#">arXiv</a><a href="#">PDF</a></div>
       </li>
       <li>
-        <span class="pub-num">3.</span>
-        <div>
-          <div class="pub-title">Title of an Earlier Paper</div>
-          <div class="pub-authors"><strong>Your Name</strong>, A. Author</div>
-          <div class="pub-journal"><em>Journal of High Energy Physics</em> <strong>2022</strong>, 045 (2022)</div>
-          <div class="pub-links">
-            <a href="#">DOI</a>
-            <a href="#">arXiv</a>
-            <a href="#">PDF</a>
-          </div>
-        </div>
+        <div class="pub-title">Title of an Earlier Paper</div>
+        <div class="pub-meta">A. Author, Yang-Ting Chien &nbsp;·&nbsp; <em>Phys. Rev. D</em> <strong>108</strong>, 034021 (2022)</div>
+        <div class="pub-links"><a href="#">DOI</a><a href="#">arXiv</a><a href="#">PDF</a></div>
       </li>
     </ul>
   </section>
 
   <!-- Teaching -->
   <section id="teaching">
-    <div class="section-label">04 — Teaching</div>
     <h2>Teaching</h2>
-    <p>
-      Brief statement on your teaching philosophy or interests (optional).
-    </p>
-    <table class="course-table">
+    <table>
       <thead>
         <tr>
           <th>Course</th>
           <th>Title</th>
           <th>Level</th>
-          <th>Semester</th>
+          <th>Term</th>
         </tr>
       </thead>
       <tbody>
@@ -555,80 +335,64 @@
           <td>Spring 2024</td>
         </tr>
         <tr>
-          <td class="course-num">PHYS 8000</td>
+          <td class="course-num">PHYS 8XXX</td>
           <td>Quantum Field Theory</td>
           <td>Graduate</td>
           <td>Fall 2024</td>
-        </tr>
-        <tr>
-          <td class="course-num">PHYS 8100</td>
-          <td>Advanced Topic in Physics</td>
-          <td>Graduate</td>
-          <td>Spring 2025</td>
         </tr>
       </tbody>
     </table>
   </section>
 
-  <!-- CV -->
-  <section id="cv">
-    <div class="section-label">05 — Curriculum Vitae</div>
-    <h2>CV</h2>
-    <div class="cv-box">
-      <p>
-        Full curriculum vitae including education, positions, grants, publications,
-        and service. Last updated [Month Year].
-      </p>
-      <!-- Point this href to your CV file, e.g. href="cv.pdf" -->
-      <a class="btn" href="cv.pdf" target="_blank">Download CV (PDF)</a>
+  <!-- People -->
+  <section id="people">
+    <h2>People</h2>
+    <div class="people-group">
+      <h3>Postdoctoral Researchers</h3>
+      <ul class="people-list">
+        <li>Postdoc Name <span>— research topic or brief description</span></li>
+        <li>Postdoc Name <span>— research topic or brief description</span></li>
+      </ul>
+    </div>
+    <div class="people-group">
+      <h3>Graduate Students</h3>
+      <ul class="people-list">
+        <li>Student Name <span>— PhD candidate, research topic</span></li>
+        <li>Student Name <span>— PhD student, research topic</span></li>
+        <li>Student Name <span>— PhD student, research topic</span></li>
+      </ul>
+    </div>
+    <div class="people-group">
+      <h3>Alumni</h3>
+      <ul class="people-list">
+        <li>Former Student Name <span>— now at [institution or position]</span></li>
+      </ul>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <div class="section-label">06 — Contact</div>
-    <h2>Contact</h2>
-    <div class="contact-grid">
-      <dl class="contact-block">
-        <dt>Email</dt>
-        <dd><a href="mailto:yourname@gsu.edu">yourname@gsu.edu</a></dd>
-        <dt>Phone</dt>
-        <dd>+1 (404) 000-0000</dd>
-        <dt>Office Hours</dt>
-        <dd>By appointment</dd>
-      </dl>
-      <dl class="contact-block">
-        <dt>Office</dt>
-        <dd>
-          Science Annex, Room 000<br/>
-          25 Park Place NE<br/>
-          Atlanta, GA 30303
-        </dd>
-        <dt>Mailing Address</dt>
-        <dd>
-          Department of Physics &amp; Astronomy<br/>
-          Georgia State University<br/>
-          P.O. Box 5060<br/>
-          Atlanta, GA 30302
-        </dd>
-      </dl>
-    </div>
+  <!-- Useful Links -->
+  <section id="links">
+    <h2>Useful Links</h2>
+    <ul class="links-list">
+      <li><a href="cv.pdf" target="_blank">Curriculum Vitae (PDF)</a></li>
+      <li><a href="https://inspirehep.net" target="_blank">INSPIRE-HEP profile</a></li>
+      <li><a href="https://scholar.google.com" target="_blank">Google Scholar</a></li>
+      <li><a href="https://arxiv.org/search/?searchtype=author&query=Chien+Yang-Ting" target="_blank">arXiv</a></li>
+      <li><a href="https://physics.gsu.edu" target="_blank">GSU Department of Physics &amp; Astronomy</a></li>
+    </ul>
   </section>
 
-</div><!-- .page-wrap -->
+</div><!-- .wrap -->
 
 <footer>
-  &copy; <span id="yr"></span> Your Name &nbsp;·&nbsp;
+  Yang-Ting Chien &nbsp;·&nbsp;
   Department of Physics &amp; Astronomy, Georgia State University &nbsp;·&nbsp;
-  <a href="https://physics.gsu.edu" target="_blank">physics.gsu.edu</a>
+  <a href="mailto:ytchien@gsu.edu">ytchien@gsu.edu</a>
 </footer>
 
 <script>
-  // Auto year in footer
-  document.getElementById('yr').textContent = new Date().getFullYear();
-
   // Highlight active nav link on scroll
-  const sections = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll('section[id], header[id]');
   const navLinks = document.querySelectorAll('nav a');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -638,7 +402,7 @@
         if (active) active.classList.add('active');
       }
     });
-  }, { rootMargin: '-40% 0px -55% 0px' });
+  }, { rootMargin: '-30% 0px -60% 0px' });
   sections.forEach(s => observer.observe(s));
 </script>
 
